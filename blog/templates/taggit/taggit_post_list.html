@@ -1,6 +1,7 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
-{% block title %} Bookmark {% endblock %}
+{% block title %}taggit_cloud.html{% endblock %}
+
 
 
 {% block header %}
@@ -10,8 +11,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1> Bookmark </h1>
-            <span class="subheading">Bookmark List</span>
+            <h1>Tag_Detail</h1>
+            <span class="subheading">Tag_Detail</span>
           </div>
         </div>
       </div>
@@ -19,23 +20,17 @@
   </header>
 {% endblock %}
 
-
 {% block content %}
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-      <div id="content">
+        <h1>Posts for tag - {{ tagname }}</h1>
+        <br>
 
-        <h1>Bookmark List</h1>
-
-        <ul>
-        {% for bookmark in object_list %}
-        <li><a href="{% url 'bookmark:detail' bookmark.id %}">{{ bookmark }}</a></li>
+        {% for post in object_list %}
+            <h2><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h2>
+            {{ post.modify_dt|date:"N d, Y" }}
+            <p>{{ post.description }}</p>
         {% endfor %}
-        </ul>
 
-      </div>
 {% endblock %}
-
-
-{% block extra-script %}{% endblock %}

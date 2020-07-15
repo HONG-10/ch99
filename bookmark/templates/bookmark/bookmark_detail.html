@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block title %} Bookmark Detail {% endblock %}
 
 {% block header %}
@@ -19,17 +18,21 @@
   </header>
 {% endblock %}
 
+
 {% block content %}
-<div id="content">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <div id="content">
 
-    <h1>{{ object.title }}</h1>
+        <h1>{{ object.title }}</h1>
 
-    <ul>
-        <li>URL: <a href="{{ object.url }}">{{ object.url }}</a></li>
-    </ul>
-
-</div>
+        <ul>
+            <li>URL: <a href="{{ object.url }}">{{ object.url }}</a></li>
+        </ul>
+        </div>
 {% endblock %}
+
 
 {% block extra-script %}{% endblock %}
 
