@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
-{% block title %} Bookmark {% endblock %}
+{% block title %} home.html {% endblock %}
 
 {% block header %}
  <header class="masthead" style="background-image: url({% static 'img/home-bg.jpg' %})">
@@ -10,8 +11,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1> Bookmark </h1>
-            <span class="subheading">Bookmark List</span>
+            <h1>Clean Blog</h1>
+            <span class="subheading">A Blog Theme by Start Bootstrap</span>
           </div>
         </div>
       </div>
@@ -20,20 +21,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-      <div id="content">
-
-        <h1>Bookmark List</h1>
-
-        <ul>
-        {% for bookmark in object_list %}
-        <li><a href="{% url 'bookmark:detail' bookmark.id %}">{{ bookmark }}</a></li>
-        {% endfor %}
-        </ul>
-
-      </div>
+안녕하세요
 {% endblock %}
 
 {% block extra-script %}{% endblock %}

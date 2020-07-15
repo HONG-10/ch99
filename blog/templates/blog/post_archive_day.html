@@ -1,3 +1,13 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} home.html {% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block content %}
+
 <h1>Post Archives for {{ day|date:"N d, Y" }}</h1>
 
 <div>
@@ -8,3 +18,7 @@
         {% endfor %}
     </ul>
 </div>
+
+{% endblock %}
+
+{% block extra-script %}{% endblock %}

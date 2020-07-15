@@ -1,9 +1,9 @@
-from django.views.generic import ListView, DeleteView
+from django.views.generic import ListView, DetailView
 from bookmark.models import Bookmark
 
 class BookmarkLV(ListView):
     model = Bookmark
 
-class BookmarkDV(DeleteView):
+class BookmarkDV(DetailView):
     model = Bookmark
 

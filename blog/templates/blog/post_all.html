@@ -1,25 +1,59 @@
-<h1>Blog List</h1>
-<br>
+{% extends 'base.html' %}
+{% load static %}
 
-{% for post in posts %}
-    <h3><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h3>
-    {{ post.modify_dt|date:"N d, Y" }}
-    <p>{{ post.description }}</p>
-{% endfor %}
 
-<br>
 
-<div>
-    <span>
-        {% if page_obj.has_previous %}
+{% block title %} Blog {% endblock %}
+
+
+
+{% block header %}
+ <header class="masthead" style="background-image: url({% static 'img/home-bg.jpg' %})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Blog</h1>
+            <span class="subheading">Blog List</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <h1>Blog List</h1>
+      <br>
+
+       {% for post in posts %}
+       <h3><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h3>
+       {{ post.modify_dt|date:"N d, Y" }}
+       <p>{{ post.description }}</p>
+       {% endfor %}
+       <br>
+          <span>
+            {% if page_obj.has_previous %}
             <a href="?page={{ page_obj.previous_page_number }}">PreviousPage</a>
-        {% endif %}
+            {% endif %}
 
-        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
 
-        {% if page_obj.has_next %}
+            {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}">NextPage</a>
-        {% endif %}
-    </span>
-
+            {% endif %}
+          </span>
+    </div>
+  </div>
 </div>
+{% endblock %}
+
+
+
+{% block extra-script %}{% endblock %}
