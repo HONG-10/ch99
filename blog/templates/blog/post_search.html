@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
-{% block title %}taggit_cloud.html{% endblock %}
+{% block title %} Post {% endblock %}
 
 
 
@@ -11,8 +11,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>Tag_Detail</h1>
-            <span class="subheading">Tag_Detail</span>
+            <h1>Search</h1>
+            <span class="subheading">Search_s</span>
           </div>
         </div>
       </div>
@@ -26,12 +26,24 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-        <h1>Posts for tag - {{ tagname }}</h1>
+        <h1>Blog Search</h1>
         <br>
 
-        {% for post in object_list %}
+        <form action="." method="post"> {% csrf_token %}
+            {{ form.as_table }}
+            <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+        </form>
+
+        <br/><br/>
+
+        {% if object_list %}
+            {% for post in object_list %}
             <h2><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h2>
             {{ post.modify_dt|date:"N d, Y" }}
             <p>{{ post.description }}</p>
-        {% endfor %}
+            {% endfor %}
+
+        {% elif search_term %}
+        <b><i>Search Word({{ search_term }}) Not Found !</i></b>
+        {% endif %}
 {% endblock %}

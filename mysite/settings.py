@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'taggit.apps.TaggitAppConfig',
     'taggit_templatetags2',
+    'photo.apps.PhotoConfig',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -124,11 +126,9 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 TAGGIT_CASE_INSENSITIVE = True
@@ -136,3 +136,6 @@ TAGGIT_LIMIT = 50
 
 DISQUS_SHORTNAME = 'h10-django'
 DISQUS_MY_DOMAIN = 'http://127.0.0.1:8000'
+
+LOGIN_REDIRECT_URL = '/'
+
