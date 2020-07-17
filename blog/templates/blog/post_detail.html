@@ -38,6 +38,9 @@
                  {{ object.get_previous }} --&laquo;
             </a>
             {% endif %}
+
+            <a class="btn btn-success" href="{% url 'blog:change' %}" role="button">수정</a>
+            <a class="btn btn-danger" href="{% url 'blog:delete' object.id %}" role="button">삭제</a>
         </p>
 
         <p>{{ object.modify_dt|date:"j F Y" }}</p>

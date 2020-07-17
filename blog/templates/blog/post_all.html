@@ -26,7 +26,34 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-      <h1>Blog List</h1>
+
+
+      <h1>Post List</h1>
+      <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href={% url 'blog:index' %}>List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href={% url 'blog:post_archive' %}>Archive</a>
+          </li>
+          <!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href={% url 'blog:post_archive' %}>Archive</a>
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+          -->
+      </ul>
       <br>
 
        {% for post in posts %}
@@ -44,6 +71,23 @@
                 <div class="col-lg-3 col-md-10 mx-auto">
                   <span>
 
+                    <!--<nav aria-label="Page navigation example">
+                      <ul class="pagination">
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>-->
                     {% if page_obj.has_previous %}
                     <a href="?page={{ page_obj.previous_page_number }}">PreviousPage</a>
                     {% endif %}

@@ -58,6 +58,7 @@ thumbnail {
             {% endfor %}
         </div>
 
-        {% endfor %}
+        <a class="btn btn-primary" href="{% url 'photo:album_add' %}" role="button">앨범 추가</a>
 
+        {% endfor %}
 {% endblock %}

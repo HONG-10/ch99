@@ -59,6 +59,11 @@ thumbnail {
             </div>
             {% endfor %}
 
+
         </div>
+
+        <a class="btn btn-primary" href="{% url 'photo:photo_add' %}" role="button">사진 추가</a>
+        <a class="btn btn-success" href="{% url 'photo:album_change' %}" role="button">앨범 수정</a>
+        <a class="btn btn-danger" href="{% url 'photo:album_delete' object.id %}" role="button">앨범 삭제</a>
 
 {% endblock %}

@@ -46,6 +46,9 @@
                         <a href="{% url 'photo:album_detail' object.album.id %}"> {{ object.album.name }}</a>
                     </p>
             </ul>
-        </div>
 
+            <a class="btn btn-success" href="{% url 'photo:photo_change' %}" role="button">사진 수정</a>
+            <a class="btn btn-danger" href="{% url 'photo:photo_delete' object.id %}" role="button">사진 삭제</a>
+
+        </div>
 {% endblock %}

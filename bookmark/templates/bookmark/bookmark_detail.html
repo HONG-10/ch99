@@ -30,6 +30,8 @@
         <ul>
             <li>URL: <a href="{{ object.url }}">{{ object.url }}</a></li>
         </ul>
+            <a class="btn btn-success" href="{% url 'bookmark:change' %}" role="button">수정</a>
+            <a class="btn btn-danger" href="{% url 'bookmark:delete' object.id %}" role="button">삭제</a>
         </div>
 {% endblock %}
 
