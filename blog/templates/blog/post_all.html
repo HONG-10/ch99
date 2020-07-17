@@ -71,23 +71,29 @@
                 <div class="col-lg-3 col-md-10 mx-auto">
                   <span>
 
-                    <!--<nav aria-label="Page navigation example">
+                    <nav aria-label="Page navigation example">
                       <ul class="pagination">
                         <li class="page-item">
-                          <a class="page-link" href="#" aria-label="Previous">
+                          {% if page_obj.has_previous %}
+                          <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                           </a>
+                          {% endif %}
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="http://127.0.0.1:8000/blog/?page=1">1</a></li>
+                        <li class="page-item"><a class="page-link" href="http://127.0.0.1:8000/blog/?page=2">2</a></li>
+                        <li class="page-item"><a class="page-link" href="http://127.0.0.1:8000/blog/?page=3">3</a></li>
                         <li class="page-item">
-                          <a class="page-link" href="#" aria-label="Next">
+                          {% if page_obj.has_next %}
+                          <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                           </a>
+                          {% endif %}
                         </li>
                       </ul>
-                    </nav>-->
+                    </nav>
+
+                    <!--
                     {% if page_obj.has_previous %}
                     <a href="?page={{ page_obj.previous_page_number }}">PreviousPage</a>
                     {% endif %}
@@ -97,6 +103,8 @@
                     {% if page_obj.has_next %}
                     <a href="?page={{ page_obj.next_page_number }}">NextPage</a>
                     {% endif %}
+                    -->
+
                   </span>
     </div>
   </div>
